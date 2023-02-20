@@ -1,6 +1,9 @@
+import java.beans.JavaBean;
+
 public class Player {
-    private final String name;
-    private final char symbol;
+    protected String name;
+    protected char symbol;
+
     public Player(String nm, char sym){
         name = nm;
         symbol = sym;
@@ -8,10 +11,6 @@ public class Player {
     public void get_move(int x, int y){
 
     }
-    public String get_name(){
-        return name;
-    }
-    public char get_symbol(){
-        return symbol;
-    }
+    public String get_name(){return name;}
+    public char get_symbol(){return symbol;}
 }

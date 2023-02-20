@@ -1,7 +1,7 @@
 public class Board {
-    private int n;
+    protected int n;
 
-    private int[][] grid;
+    protected int[][] grid;
 
     public Board(int n) {
 

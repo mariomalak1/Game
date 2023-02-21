@@ -1,4 +1,3 @@
-import java.beans.JavaBean;
 import java.util.Scanner;
 
 // this class to hold only single value to pass it with reference in method

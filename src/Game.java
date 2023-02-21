@@ -15,36 +15,76 @@ public class Game {
         IntReference y=new IntReference();
 
         if (turn==0) {
-            System.out.println(player1.get_name()+" enter move");
-            player1.get_move(x, y);
-            board.update(x.number,y.number, player1.get_symbol());
+            while(true)
+            {
+                System.out.println(player1.get_name()+" enter move");
+                player1.get_move(x, y);
+                //check if the index is valid
+                if((x.number>=0 && x.number <3)&& (y.number>=0 && y.number <3))
+                {
+                    // check if the place is empty or not
+                    if(board.grid[x.number][y.number] == '_')
+                    {
+                        board.update(x.number,y.number, player1.get_symbol());
+                        turn++;
+                        break;
+                    }
+                    else
+                    {
+                        System.out.println("This Place has been used before ... please try again ");
+                    }
+                }
+                else
+                {
+                    System.out.println("Wrong index ... Try again ");
+                }
+            }
             board.display_Board();
-            turn++;
         }
         else {
-            System.out.println(player2.get_name()+" enter move");
-            player2.get_move(x, y);
-            board.update(x.number,y.number, player2.get_symbol());
+            while(true)
+            {
+                System.out.println(player2.get_name()+" enter move");
+                player2.get_move(x, y);
+                //check if the index is valid
+                if((x.number>=0 && x.number <3)&& (y.number>=0 && y.number <3))
+                {
+                    // check if the place is empty or not
+                    if(board.grid[x.number][y.number] == '_')
+                    {
+                        board.update(x.number,y.number, player2.get_symbol());
+                        turn--;
+                        break;
+                    }
+                    else
+                    {
+                        System.out.println("This Place has been used before ... please try again ");
+                    }
+                }
+                else
+                {
+                    System.out.println("Wrong index ... Try again ");
+                }
+            }
             board.display_Board();
-            turn--;
-
         }
     }
-    public void play_game(){
-while(!board.is_draw()&&!board.is_winner(player1.symbol)&&!board.is_winner(player2.symbol)){
-    GameManger();
 
-}
-if (board.is_draw())
-        System.out.println("Draw");
-else {
-    // because turn is change in last move to another player
-    if(turn==1){
-        System.out.println(player1.get_name()+"win");
-    }
-    else{
-        System.out.println(player2.get_name()+"win");
-    }
-}
+    public void play_game() {
+        System.out.println("#### START OF THE GAME ####");
+        while (!board.is_draw() && !board.is_winner(player1.symbol) && !board.is_winner(player2.symbol))
+        {
+            GameManger();
+        }
+        if (board.is_draw())
+            System.out.println("#### Draw ####");
+        else {
+            // because turn is change in last move to another player
+            if (turn == 1) {
+                System.out.println("### "+player1.get_name() + " is the winner ###");
+            } else {
+                System.out.println("### "+player2.get_name() + " is the winner ###");
+            }
+        }
     }
 }

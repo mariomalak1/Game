@@ -18,6 +18,7 @@ public class Player {
     public void get_move(IntReference x, IntReference y){
         x.number = new Scanner(System.in).nextInt();
         y.number = new Scanner(System.in).nextInt();
+
     }
 
     // getter, setter of name

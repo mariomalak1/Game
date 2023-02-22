@@ -1,4 +1,3 @@
-import java.util.*;
 public class Game {
     Board board;
     Player player1;
@@ -11,8 +10,10 @@ public class Game {
     }
     void GameManger(){
 
-        IntReference x = new IntReference();
-        IntReference y=new IntReference();
+        Player.IntReference x = new Player.IntReference();
+        Player.IntReference y = new Player.IntReference();
+
+        board.display_Board();
 
         if (turn==0) {
             while(true)
@@ -39,7 +40,6 @@ public class Game {
                     System.out.println("Wrong index ... Try again ");
                 }
             }
-            board.display_Board();
         }
         else {
             while(true)
@@ -66,7 +66,6 @@ public class Game {
                     System.out.println("Wrong index ... Try again ");
                 }
             }
-            board.display_Board();
         }
     }
 
@@ -76,6 +75,7 @@ public class Game {
         {
             GameManger();
         }
+        board.display_Board();
         if (board.is_draw())
             System.out.println("#### Draw ####");
         else {
